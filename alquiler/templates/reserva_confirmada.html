@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--Titulo de la Página Principal -->
+{% block title %} Reservar Cancha {% endblock %}
+
+{% block content %}
+    <div class="container-fluid post-home col-8 rounded-3 reservar-cancha text-center ">
+        <div class="text-decoration-underline my-4">
+            <h1>Cancha Reservada con Exito</h1><i class="fa-regular fa-circle-check fa-4x"></i>
+        </div>
+        <div class="text-center my-3">
+            <button type="button" class="btn btn-secondary btn-lg">
+                <a href="{% url 'home' %}" 
+                    class="text-decoration-none text-white">
+                    Volver al Inicio
+                </a>
+            </button>
+        </div>
+    </div>
+
+{% endblock %}

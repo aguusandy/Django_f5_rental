@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--Titulo de la Página Principal -->
+{% block title %}Eliminar Cancha{% endblock %}
+
+{% if user.is_authenticated %}
+    {% block content %}
+        <div class="container-fluid col-sm-6 post-home borrar-cancha rounded-3">
+            <div class="modal-dialog modal-confirm ">
+                <div class="modal-content">
+                    <div class="form-group">
+                        <form method="POST">
+                            {% csrf_token %}{{ form.as_p }}
+                            <div class="modal-header flex-column">
+                                <div class="icon-box">
+                                    <i class="material-icons"/>
+                                </div>						
+                                <h4 class="modal-title w-100">Seguro de borrar la cancha {{cancha.nombre}} ?</h4>	
+                            </div>
+                            
+                            <div class="modal-body">
+                                <p>La cancha se borrara definitivamente y luego no podra volver a verlo.</p>
+                            </div>
+                            
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary" 
+                                data-dismiss="modal">Cancelar</button>
+                                <button type="submit" 
+                                class="btn btn-danger">Borrar Cancha</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+            {% endblock %}
+        </div>
+{% endif %}

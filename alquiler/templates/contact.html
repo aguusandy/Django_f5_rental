@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--Titulo de la Página  -->
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+<div class="container-fluid col-12 col-sm-10 fondotexto rounded-3 mx-auto contactpage">
+    <div class="container-fluid post-home my-4 py-1 rounded-3">
+        <h2 class="my-4 text-decoration-underline ">Contáctanos a través de las redes sociales:</h2>
+        <ul class="listasinestilo mx-auto w-100 p-0 text-center w-100">
+            <div class="container-fluid p-0 m-0 redcontact text-center list-inline-item">
+                <i class="fab fa-instagram fa-4x"></i>
+                <li class=""><a class="fs-3" href="" target="_blank">Instagram </a></li>
+            </div>
+            <div class="container-fluid p-0 m-0 redcontact text-center list-inline-item">
+                <i class="fab fa-facebook-square fa-3x"></i>
+                <li class=""><a class="fs-3" href="" target="_blank">Facebook</a></li>
+            </div>
+            <div class="container-fluid p-0 m-0 redcontact text-center list-inline-item">
+                <i class="fab fa-twitter-square fa-3x"></i>
+                <li class=""><a class="fs-3" href="" target="_blank">Twitter</a></li>
+            </div>
+        </ul>
+    
+        <hr>
+        {% if nombre_contacto %}
+        <div class="container-fluid text-center">
+            <h2>{{ nombre_contacto }}, gracias por contactarnos</h2>
+            <h4>El mensaje ha sido enviado correctamente.</h4>
+            <br>
+            <a href="{% url 'home' %}">Volver al inicio</a>
+        </div>
+        {% else %}
+            <div class="container-fluid">
+                <h2 class="my-2 text-decoration-underline">Contáctanos a través de los siguientes telefonos: </h2>
+                <ul class="listasinestilo mx-auto w-100 p-0  w-100">
+                    <div class="container-fluid p-0 mx-auto"> 
+                        <li class="ml-4"><h4>Celular: (0343)+54100000 </h4></li>
+                        <li class="ml-4"><h4>Fijo: (0343) +54132230 </h4></li>
+                    </div>
+                </ul>
+            </div>
+            <hr>
+            <h2 class="my-2 text-decoration-underline">Envíanos un Correo: </h2>
+            <div class="container-fluid col-12 col-sm-10 fondo-comentario rounded-3 mt-4 py-2">
+                <div class="form-group">
+                    <form  action="{% url 'contact' %}" method="post">
+                        {% csrf_token %}
+                        <p class="py-0 my-0">Nombre:</p>
+                        <input type="text" class="form-control my-2" placeholder="Nombre y Apellido" name="nombre">
+                        <p class="py-0 my-0">Email:</p>
+                        <input type="email" class="form-control my-2" placeholder="ejemplo@ejemplo.ej" name="email">
+                        <p class="py-0 my-0">Mensaje:</p>
+                        <textarea class="form-control my-2" placeholder="Escribe tu mensaje..." name="mensaje"></textarea>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary w-50">Enviar Mensaje</button>
+                        </div>
+                    </form>
+                </div>       
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

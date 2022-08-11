@@ -1,0 +1,126 @@
+@media screen and (max-width: 550px){
+    /*Cuerpo de la Página*/
+    .cuerpo{
+        background: url("/static/images/background1.jpg") no-repeat 50% 0 fixed;
+    }
+    .image_404{
+        width: 100%;
+        height: 50vh;
+    }
+    /*BARRA NAVEGACION*/
+    .pestaña:hover,.pestaña:active{
+        background-color: rgba(255,255,255,0.3);
+        border-radius: 6px;
+        transition: all 0.7s;
+    }
+
+     /*Carrusel*/
+     .carrusel{
+        width: 100%;
+        height: 30vh;
+        opacity: .8;
+    }
+    .tituloCarrusel{
+        text-decoration: none;
+        color: ghostwhite;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .tituloCarrusel:hover, .tituloCarrusel:active{
+        text-decoration: none;
+        color: ghostwhite;
+    }
+     /*SCROLL*/
+     .table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    /*Fondo para los Textos */
+    .fondotexto{
+        background: rgba(255, 255, 255, 0.712);
+        margin-bottom: 4%;
+    }
+    
+    .textoparrafo{
+        text-align: justify;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .listasinestilo{
+        list-style-type: none;
+    }
+    
+    /*Post en el home*/
+    .post-home{
+        background: rgba(255, 235, 205, 0.638);
+        border-style: ridge;
+    }
+    .tituloPost{
+        text-align: center;
+        font-family: Tahoma, sans-serif;
+        text-decoration: none;
+        color: black;
+    }
+    .tituloPost:hover, .tituloPost:active{
+        text-decoration: underline;
+    }
+    .subtituloPost{
+        text-align: center;
+        text-decoration: none;
+        color: black;
+    }
+    .subtituloPost a:hover, .subtituloPost a:active{
+        color:blue;
+        text-decoration: underline;
+    }
+    .parrafoPost{
+        word-break: break-word;
+        text-align: justify;
+        font-family: Helvetica, sans-serif;
+        font-size: 110%;
+    }
+    .parrafoPost2{
+        word-break: break-word;
+        font-family: Helvetica, sans-serif;
+        font-size: 110%;
+    }
+    /*
+    /*Pie Página*/
+    .listapie{
+        margin: 0% 0% 0% 3%;
+    }
+    .textpie{
+        font-size: small;
+    }
+    .lem{
+        margin: 0% 0% 0% 0%;
+        padding: 0%;
+    }
+    
+    /*Cuerpo Comentario*/
+    .nomCom{
+        text-decoration: none;
+        text-transform: capitalize;
+        color: black;
+    }
+    .cuerpoCom{
+        text-indent: 2%;
+        word-break: break-all;
+    }
+
+    .fondo-comentario{
+       background: rgba(255, 255, 255, 0.712);
+       margin: 0%;
+       width: 100%;
+    }
+    .imagen{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    /*Contact*/
+    .redcontact{
+        width: 80%;
+    }
+}

@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+<!--Titulo de la Página  -->
+{% block title %} Pagina no encontrada {% endblock %}
+
+{% block content %}
+<div class="container-fluid col-10 my-2">
+    <h5 class="text-center my-2">Disculpe, la página no existe...</h5>
+    <div class="mx-auto px-0 ">
+        <img src="{% static 'images/404.jpg' %}" class="mx-0 px-0 image_404" alt="404">
+    </div>
+    <div class="text-center my-3">
+        <button type="button" class="btn btn-secondary btn-lg">
+            <a href="{% url 'home' %}" 
+                class="text-decoration-none text-white">
+                Volver al Inicio
+            </a>
+        </button>
+    </div>
+</div>
+{% endblock %}

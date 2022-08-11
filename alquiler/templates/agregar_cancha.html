@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+<!--Titulo de la Página Principal -->
+{% block title %}Crear una nueva Cancha{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class="container-fluid col-10 post-home agregar-cancha rounded-3">  
+            <div class="text-center text-decoration-underline">
+                <h1>Agregar Cancha</h1></br>
+            </div>
+            <!--Formulario Django-->
+            <div class="container">
+                <div class="form-group col-8 mx-auto">
+                    <form method="POST">
+                
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="text-center">
+                        <button class="btn btn-primary w-50">Agregar Cancha</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            </br>
+        </div>
+    {% endif %}
+
+{% endblock %}

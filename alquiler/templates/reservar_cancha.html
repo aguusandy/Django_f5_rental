@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--Titulo de la Página Principal -->
+{% block title %} Reservar Cancha {% endblock %}
+
+{% block content %}
+    <div class="container-fluid post-home col-10 rounded-3 reservar-cancha">
+        <div class="text-center text-decoration-underline my-4">
+            <h1>Reserva tu Cancha</h1>
+        </div>
+            
+            <div class="col-sm-8 mx-auto">
+                <div class="form-group">
+                    <form  method="post" action="">
+                        
+                        {% csrf_token %}
+
+                        <p class="py-0 my-0">Nombre:</p>                        
+                        <input type="text" name="nombre" value="" class="form-control" maxlength="255" required id="id_nombre">
+                        
+                        <p class="py-0 my-0">Teléfono:</p>                       
+                        <input type="text" name="telefono" value="" class="form-control" maxlength="255" required id="id_telefono">
+                    
+                        <p class="py-0 my-0">Cancha: </p>
+                        <select name="cancha" class="form-control">
+                            {% for cancha in canchas %}
+                                {% if cancha.id == request.resolver_match.kwargs.idcancha %}
+                                    <option value="{{ cancha.id }}">{{ cancha.nombre }}</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        
+                        <p class="py-0 my-0">Horario: </p>
+                        <select name="horario" class="form-control">
+                            {% for horario in horarios %}
+                                {% if horario.id == request.resolver_match.kwargs.idhora %}
+                                    <option value = "{{horario.id}}">{{ horario.hora }} Hs</option>
+                                {% endif %}
+                            {% endfor %}
+                        </select>
+                        
+                        <div class="text-center py-4">
+                            <button type="submit" class="btn btn-primary w-50">Reservar Cancha</button>
+                        </div>
+                    </form>
+                </div>       
+            </div>
+
+
+        
+        
+    </div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--Titulo de la Página Principal -->
+{% block title %} Reserva tu Cancha F5 {% endblock %}
+
+{% block content %}
+    <div class="container-fluid post-home col-sm-10 rounded-3 my-4 mb-5">
+        <div class="text-center text-decoration-underline my-4">
+            <h1>Reserva tu Cancha</h1>
+        </div>
+
+        <div class="container-fluid col-12">
+            <table class="table">
+                {% for key,value in info %}
+                    <tr class="text-center fila my-auto py-auto fs-4 px-4">             
+                        <td scope="col" class="col-2 text-uppercase fw-bolder mb-4">
+                            {{ key.nombre }}
+                        </td>    
+                        {% for horario in value %}
+                            <td scope="col" class="item w-100">
+                                <button type="button" class="item btn btn-secondary btn-lg">
+                                    <a href="{% url 'reservar_cancha' key.id horario.id %}" 
+                                        class="text-decoration-none text-white">
+                                        {{ horario.hora }} Horas
+                                    </a>
+                                </button>
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+            
+    </div>
+{% endblock %}

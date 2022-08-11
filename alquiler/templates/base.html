@@ -1,0 +1,117 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block meta %}
+    {% endblock %}
+
+    <!-- FOnt Awesome CSS-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" 
+     crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+    crossorigin="anonymous">
+    <!-- CSS Custom -->
+    <link href="{% static 'css/grande.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/mediano.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/chico.css' %}" rel="stylesheet" type="text/css">
+
+    
+    <title> {% block title %} {% endblock %}</title>
+  </head>
+  <body class="cuerpo">
+
+      <!--NAVBAR-->
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark p-3">
+          <div class="container-fluid text-inicio w-50">
+            <div>
+              <a class="navbar-brand " href="{% url 'home' %}">Cancha F5</a>
+            </div>
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+            aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> 
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto text-opciones">
+              <li class="nav-item">
+                <a class="nav-link active rounded-3 pestaña text-center px-4" aria-current="page"
+                 href="{% url 'home' %}">Inicio</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active rounded-3 pestaña text-center px-4" aria-current="page" 
+                href="{% url 'reservas' %}">Reservar Cancha</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link active rounded-3 pestaña text-center px-4" aria-current="page" 
+                href="{% url 'ubicacion' %}">Ubicacion</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle rounded-3 pestaña active text-center px-4" 
+                href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Seguinos
+                </a>
+                <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                    <li class=""><a class="dropdown-item text-white text-center pestaña" 
+                      href="https://www.instagram.com" target="_blank">Instagram <i class="fab fa-instagram"></i></a></li>
+                    <li class=""><a class="dropdown-item text-white text-center pestaña"  
+                      href="https://www.facebook.com" target="_blank">Facebook <i class="fab fa-facebook"></i></a></li>
+                    <li class=""><a class="dropdown-item text-white text-center  pestaña" 
+                      href="https://www.twitter.com" target="_blank">Twitter<i class="fab fa-twitter"></i></a></li>
+                </ul>
+              </li>
+
+              {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link pestaña" href="{% url 'agregar_cancha' %}">Agregar Cancha</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link pestaña" href="{% url 'canchas' %}">Ver Canchas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link pestaña" href="{% url 'reservas_hechas' 1 %}">Ver Reservas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link pestaña" href="{% url 'logout' %}">Cerrar Sesion</a>
+                </li>
+              {% endif %} 
+            </ul>
+          </div>
+      </nav>
+     
+    <!-- Contenido que se agrega desde el template -->
+    <div class="container-fluid cotenido_principal m-0 p-0">
+      {% block content %}
+          
+      {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-2 bg-dark w-100 text-center fixed-bottom">
+      <div class="container-fluid py-2">
+        <ul class="my-0 w-100 ">
+          <div class="">
+            <li class="list-inline-item "><a href="/" class="text-white textpie">Cancha F5</a></li>
+            <li class="list-inline-item "><a href="{% url 'contact' %}" class="text-white textpie">Contacto</a></li>
+            <li class="list-inline-item "><a href="{% url 'ubicacion' %}" class="text-white textpie">Ubicacion</a></li>
+          </div>
+        </ul>
+      </div>
+  </footer>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+   
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--Titulo de la Página  -->
+{% block title %}Ubicacion del Complejo{% endblock %}
+
+{% block content %}
+<div class="container-fluid col-12 col-sm-10 fondotexto rounded-3 mx-auto mb-5 py-2">
+    <div class="container-fluid post-home my-4 py-1 rounded-3">
+        <h2 class="text-center my-4 text-decoration-underline">Ubicacion del Complejo</h2>
+        
+        <div class="container-fluid col-sm-10">
+            <div class=" w-100">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8069.952041931672!2d-60.50348195751712!3d-31.743286360153444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b44dedc196ae4b%3A0xc35e6724b88a63ac!2sEstadio%20Presb%C3%ADtero%20Bartolom%C3%A9%20Grella!5e0!3m2!1ses!2sar!4v1646855612590!5m2!1ses!2sar" 
+                class="google-maps" allowfullscreen></iframe>
+            </div>
+
+        </div>
+        
+        <div class="my-4 contact">
+            <h4 class="my-2 text-decoration-underline">Contáctanos a través de los siguientes telefonos: </h4>
+            <ul class="listasinestilo mx-auto w-100">
+                <div class="container-fluid p-0 mx-auto"> 
+                    <li class=""><h5>Celular: (0343)+54100000 </h5></li>
+                    <li class=""><h5>Fijo: (0343) +54132230 </h5></li>
+                </div>
+            </ul>
+        </div>
+
+    </div>
+    
+</div>
+{% endblock %}

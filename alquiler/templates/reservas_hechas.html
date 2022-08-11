@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!--Titulo de la Página Principal -->
+{% block title %} Reservas Realizadas {% endblock %}
+
+{% if user.is_authenticated %}
+    {% block content %}
+        <div class="container-fluid col-12 col-sm-10 post-home rounded-3 mx-auto my-2 py-2">
+            {% if reservas %}
+                <div class="text-center text-decoration-underline">
+                    <h2 class="my-4">Historial de Reservas: </h2>
+                </div>
+                <ul class="listasinestilo px-0">
+                {% for reserva in reservas %}
+                    <hr>
+                    <div class="container-fluid texto-fondo py-2 rounded-3">                    
+                        <li>
+                            <h4>
+                                Nombre:<strong> {{ reserva.nombre }} - </strong> 
+                                {{reserva.cancha.nombre}} - 
+                                Fecha: {{reserva.fecha}} - 
+                                Hora: {{reserva.horario.hora}} - 
+                                Tel: {{reserva.telefono}}                                
+                            </h4>
+                        </li>
+                    </div>
+                    
+                {% endfor %}
+                </ul>
+            {% else%}
+                <h2 class="text-center my-4">Aún no hay ninguna reserva en el sistema.</h2>
+                
+            {% endif %}
+        </div>
+    {% endblock %}
+{% endif %}
